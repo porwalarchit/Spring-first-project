@@ -30,4 +30,15 @@ public class funRestController {
     public String getDailyFortune(){
         return "Today is your lucky day ";
     }
+
+    @Value("${team.name}")
+    private String teamName;
+
+    @Value("${coach.name}")
+    private String coachName;
+
+    @GetMapping("/teamdetails")
+        public String[] getTeamDetails(){
+            return new String[]{"Team: " + teamName , "Coach: " + coachName};
+    }
 }
